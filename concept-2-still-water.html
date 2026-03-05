@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept 2 — Still Water | Big Bear Retreat Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white:    #ffffff;
+    --off:      #f8f7f5;
+    --light:    #ede9e3;
+    --stone:    #c4bdb3;
+    --warm:     #8c7b6e;
+    --deep:     #3a3530;
+    --ink:      #1e1b18;
+    --accent:   #6b8f71;   /* muted sage */
+    --ff-serif: 'DM Serif Display', Georgia, serif;
+    --ff-sans:  'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--ink); font-family: var(--ff-sans); font-weight: 300; }
+
+  /* ── CONCEPT LABEL ── */
+  .concept-badge {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    background: var(--deep); color: #fff; text-align: center;
+    font-family: var(--ff-sans); font-size: 11px; letter-spacing: .15em;
+    text-transform: uppercase; padding: 8px 16px;
+  }
+  .concept-badge span { color: #a8c5ad; }
+
+  /* ── ANNOUNCE ── */
+  .announce {
+    background: var(--accent); color: #fff;
+    text-align: center; padding: 11px 20px;
+    font-size: 13px; letter-spacing: .06em;
+    margin-top: 32px;
+  }
+  .announce a { color: #fff; font-weight: 500; margin-left: 10px; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 32px; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 80px; height: 72px;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(16px);
+  }
+  .nav-logo { text-decoration: none; color: var(--ink); }
+  .nav-logo-name { font-family: var(--ff-serif); font-size: 20px; font-weight: 400; letter-spacing: .01em; }
+  .nav-logo-sub { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--warm); font-family: var(--ff-sans); }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--deep); font-size: 13px; letter-spacing: .06em; font-weight: 400; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--ink); color: var(--white); border: none; cursor: pointer;
+    padding: 11px 28px; font-family: var(--ff-sans); font-size: 12px;
+    letter-spacing: .1em; text-transform: uppercase; font-weight: 400;
+    border-radius: 2px; transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 104px);
+  }
+  .hero-left {
+    background: var(--off);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px;
+  }
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+  .hero-title {
+    font-family: var(--ff-serif); font-size: clamp(48px, 5vw, 80px);
+    font-weight: 400; line-height: 1.05; color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .hero-title em { font-style: italic; color: var(--warm); }
+  .hero-body { font-size: 16px; line-height: 1.8; color: var(--warm); max-width: 440px; margin-bottom: 48px; }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-dark {
+    background: var(--ink); color: #fff; border: none; cursor: pointer;
+    padding: 14px 36px; font-family: var(--ff-sans); font-size: 13px;
+    letter-spacing: .08em; font-weight: 400; border-radius: 2px;
+    transition: background .2s;
+  }
+  .btn-dark:hover { background: var(--accent); }
+  .btn-text {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--ff-sans); font-size: 13px; color: var(--warm);
+    letter-spacing: .08em; display: flex; align-items: center; gap: 8px;
+    transition: color .2s;
+  }
+  .btn-text:hover { color: var(--ink); }
+  .hero-right {
+    position: relative; overflow: hidden;
+    background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1000&q=80') center/cover no-repeat;
+  }
+  .hero-right-overlay {
+    position: absolute; bottom: 40px; left: 40px;
+    background: rgba(255,255,255,.9); backdrop-filter: blur(8px);
+    padding: 20px 24px;
+  }
+  .hero-right-overlay .stat { font-family: var(--ff-serif); font-size: 36px; color: var(--ink); }
+  .hero-right-overlay .stat-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--warm); }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--light); padding: 20px 0; overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex; gap: 60px;
+    animation: marquee 20s linear infinite;
+  }
+  .marquee-item { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--warm); }
+  .marquee-dot { color: var(--accent); }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── ABOUT ── */
+  .about { padding: 120px 80px; background: var(--white); }
+  .about-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+  .about-label-col { padding-top: 8px; }
+  .section-label {
+    font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: var(--ff-serif); font-size: clamp(36px, 3.5vw, 56px);
+    font-weight: 400; line-height: 1.1; color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .section-title em { font-style: italic; }
+  .about-body { font-size: 16px; line-height: 1.85; color: var(--warm); margin-bottom: 40px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about-card {
+    padding: 28px; background: var(--off); border-top: 2px solid var(--accent);
+  }
+  .about-card h4 { font-family: var(--ff-serif); font-size: 20px; color: var(--ink); margin-bottom: 10px; }
+  .about-card p { font-size: 14px; line-height: 1.7; color: var(--warm); }
+
+  /* ── RETREATS ── */
+  .retreats { background: var(--off); padding: 120px 80px; }
+  .retreats-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+  .retreats-list { display: flex; flex-direction: column; gap: 1px; }
+  .retreat-row {
+    display: grid; grid-template-columns: 80px 1fr auto auto;
+    align-items: center; gap: 40px;
+    padding: 28px 32px; background: var(--white);
+    cursor: pointer; transition: background .2s;
+  }
+  .retreat-row:hover { background: var(--light); }
+  .retreat-num { font-family: var(--ff-serif); font-size: 32px; color: var(--stone); font-style: italic; }
+  .retreat-info h3 { font-family: var(--ff-serif); font-size: 22px; color: var(--ink); margin-bottom: 4px; }
+  .retreat-info p { font-size: 13px; color: var(--warm); }
+  .retreat-tag {
+    background: var(--light); color: var(--warm);
+    padding: 6px 14px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    border-radius: 20px;
+  }
+  .retreat-date { font-size: 13px; color: var(--warm); text-align: right; white-space: nowrap; }
+
+  /* ── LAND ── */
+  .land { padding: 0; }
+  .land-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .land-img {
+    background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&q=80') center/cover no-repeat;
+  }
+  .land-text {
+    background: var(--deep); color: var(--light);
+    padding: 80px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .land-text .section-label { color: var(--stone); }
+  .land-text .section-label::before { background: var(--stone); }
+  .land-text .section-title { color: var(--white); }
+  .land-text .about-body { color: var(--stone); }
+  .btn-outline-light {
+    background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.4);
+    cursor: pointer; padding: 12px 32px; font-family: var(--ff-sans); font-size: 12px;
+    letter-spacing: .1em; text-transform: uppercase; font-weight: 400; align-self: flex-start;
+    transition: border-color .2s;
+  }
+  .btn-outline-light:hover { border-color: var(--white); }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    padding: 120px 80px; background: var(--white); text-align: center;
+  }
+  .quote-section blockquote {
+    font-family: var(--ff-serif); font-size: clamp(28px, 3vw, 48px);
+    font-weight: 400; font-style: italic; line-height: 1.35;
+    color: var(--ink); max-width: 800px; margin: 0 auto 24px;
+  }
+  .quote-section cite { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--warm); }
+
+  /* ── HOST ── */
+  .host { background: var(--accent); padding: 80px; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+  .host-text h2 { font-family: var(--ff-serif); font-size: clamp(32px, 3vw, 52px); color: #fff; margin-bottom: 16px; }
+  .host-text p { font-size: 16px; color: rgba(255,255,255,.8); max-width: 500px; }
+  .btn-white {
+    background: #fff; color: var(--accent); border: none; cursor: pointer;
+    padding: 14px 40px; font-family: var(--ff-sans); font-size: 13px;
+    letter-spacing: .08em; font-weight: 500; white-space: nowrap;
+    border-radius: 2px; transition: opacity .2s;
+  }
+  .btn-white:hover { opacity: .9; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); color: var(--stone); padding: 80px 80px 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-brand-name { font-family: var(--ff-serif); font-size: 26px; color: var(--white); margin-bottom: 16px; }
+  .footer-brand-desc { font-size: 14px; line-height: 1.7; opacity: .6; max-width: 260px; }
+  .footer-col h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { color: var(--stone); text-decoration: none; font-size: 14px; opacity: .65; transition: opacity .2s; }
+  .footer-col a:hover { opacity: 1; }
+  .footer-bottom { border-top: 1px solid rgba(196,189,179,.15); padding-top: 24px; display: flex; justify-content: space-between; font-size: 12px; opacity: .4; }
+
+  /* ── DESIGN NOTES ── */
+  .design-notes { background: #0f1117; color: #d0d8e8; padding: 60px 80px; font-family: var(--ff-sans); }
+  .design-notes h2 { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #6b8faa; margin-bottom: 40px; }
+  .notes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+  .note-block h3 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #8ab0c8; margin-bottom: 12px; }
+  .note-block p { font-size: 13px; line-height: 1.7; opacity: .75; }
+  .palette { display: flex; gap: 8px; margin-top: 12px; }
+  .swatch { width: 36px; height: 36px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<div class="concept-badge">Design Concept <span>02 of 04</span> — Still Water &nbsp;|&nbsp; Minimal · Airy · Contemplative</div>
+
+<div class="announce">
+  2026 Retreat Calendar is live — <a href="#">Reserve your place →</a>
+</div>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-name">Big Bear</div>
+    <div class="nav-logo-sub">Retreat Center</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Retreats</a></li>
+    <li><a href="#">Preparing</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Connect</a></li>
+  </ul>
+  <button class="nav-cta">Book Now</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Big Bear, California</p>
+    <h1 class="hero-title">Find Your<br><em>Stillness</em><br>in Nature</h1>
+    <p class="hero-body">A restorative retreat center nestled in 1,400 acres of ancient Juniper woodland — just two hours from Los Angeles. A place to breathe, reconnect, and return to yourself.</p>
+    <div class="hero-actions">
+      <button class="btn-dark">Explore Retreats</button>
+      <button class="btn-text">Our Story →</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-overlay">
+      <div class="stat">1,400</div>
+      <div class="stat-label">Acres of Protected Land</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Yoga &amp; Movement</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Silent Meditation</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Creative Workshops</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Nature Immersion</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Community Gatherings</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Healing Arts</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Yoga &amp; Movement</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Silent Meditation</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Creative Workshops</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Nature Immersion</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Community Gatherings</span><span class="marquee-dot">·</span>
+    <span class="marquee-item">Healing Arts</span><span class="marquee-dot">·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-label-col">
+      <p class="section-label">About</p>
+      <h2 class="section-title">A Space<br>to <em>Restore</em></h2>
+    </div>
+    <div>
+      <p class="about-body">Big Bear Retreat Center is a restorative space for healing and creativity. We humbly offer a supportive environment to gather in community for movement, stillness and practice, trusting in the power of embodied mindfulness and authentic connection.</p>
+      <p class="about-body">Our buildings are carefully tended, calm and comfortable. We cook with foods that nourish. And we are deeply committed to accessibility — bringing careful attention to our fees so we can do everything possible to get you here.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <h4>The Land</h4>
+          <p>1,400 acres of ancient Juniper woodland, originally tended by the Yuhaviatam ("People of the Pines").</p>
+        </div>
+        <div class="about-card">
+          <h4>Accessibility</h4>
+          <p>Sliding-scale fees and generous scholarships. We honor where you are in your life journey.</p>
+        </div>
+        <div class="about-card">
+          <h4>Nourishment</h4>
+          <p>Whole, seasonal, lovingly prepared meals to support your practice and presence.</p>
+        </div>
+        <div class="about-card">
+          <h4>Community</h4>
+          <p>A gathering place for movement, stillness, creativity, and authentic human connection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETREATS -->
+<section class="retreats">
+  <div class="retreats-header">
+    <div>
+      <p class="section-label">Programs</p>
+      <h2 class="section-title">Upcoming <em>Retreats</em></h2>
+    </div>
+    <button class="btn-dark">Full Calendar</button>
+  </div>
+  <div class="retreats-list">
+    <div class="retreat-row">
+      <div class="retreat-num">01</div>
+      <div class="retreat-info">
+        <h3>Yoga &amp; Mindfulness Immersion</h3>
+        <p>A four-day deep dive into embodied practice and presence</p>
+      </div>
+      <div class="retreat-tag">Movement</div>
+      <div class="retreat-date">Mar 14–17, 2026</div>
+    </div>
+    <div class="retreat-row">
+      <div class="retreat-num">02</div>
+      <div class="retreat-info">
+        <h3>Silent Meditation Weekend</h3>
+        <p>Noble silence, sitting practice, and guided inquiry</p>
+      </div>
+      <div class="retreat-tag">Stillness</div>
+      <div class="retreat-date">Apr 4–6, 2026</div>
+    </div>
+    <div class="retreat-row">
+      <div class="retreat-num">03</div>
+      <div class="retreat-info">
+        <h3>Writing in the Wild</h3>
+        <p>Unlock creativity through nature, community, and the written word</p>
+      </div>
+      <div class="retreat-tag">Creativity</div>
+      <div class="retreat-date">May 9–12, 2026</div>
+    </div>
+    <div class="retreat-row">
+      <div class="retreat-num">04</div>
+      <div class="retreat-info">
+        <h3>Somatic Healing Intensive</h3>
+        <p>Body-centered approaches to trauma resolution and integration</p>
+      </div>
+      <div class="retreat-tag">Healing</div>
+      <div class="retreat-date">Jun 6–9, 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAND -->
+<div class="land">
+  <div class="land-inner">
+    <div class="land-img"></div>
+    <div class="land-text">
+      <p class="section-label">The Setting</p>
+      <h2 class="section-title">Ancient Land,<br><em>Living</em> Forest</h2>
+      <p class="about-body">Nestled in 1,400 acres of ancient Juniper woodland in the San Bernardino Mountains — just two hours from Los Angeles, yet a world apart. Originally tended by the Yuhaviatam ("People of the Pines"), this land carries a deep and abiding presence.</p>
+      <button class="btn-outline-light">Learn About the Land</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote>"The land holds you in a way that words can't fully capture. I left feeling like myself again."</blockquote>
+  <cite>— Retreat Guest, Autumn 2025</cite>
+</div>
+
+<!-- HOST -->
+<div class="host">
+  <div class="host-text">
+    <h2>Host Your Retreat Here</h2>
+    <p>Big Bear Retreat Center is available for private retreats, workshops, and immersions. Our spacious facilities and 1,400 acres provide the perfect container for your group's work.</p>
+  </div>
+  <button class="btn-white">Inquire About Hosting</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Big Bear Retreat Center</div>
+      <p class="footer-brand-desc">A restorative space for healing and creativity in the San Bernardino Mountains of California.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Retreat Calendar</a></li>
+        <li><a href="#">Preparing</a></li>
+        <li><a href="#">Library</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#">1000 Sugarpine Road</a></li>
+        <li><a href="#">Big Bear City, CA</a></li>
+        <li><a href="#">(760) 209-6818</a></li>
+        <li><a href="#">Email Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Host a Retreat</a></li>
+        <li><a href="#">Scholarships</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Big Bear Retreat Center</span>
+    <span>Yuhaviatam Land Acknowledgment</span>
+  </div>
+</footer>
+
+<!-- DESIGN NOTES -->
+<div class="design-notes">
+  <h2>Design Concept 02 — Still Water: Rationale &amp; Specifications</h2>
+  <div class="notes-grid">
+    <div class="note-block">
+      <h3>Concept Direction</h3>
+      <p>Minimal, airy, and contemplative — inspired by Japanese wabi-sabi and Scandinavian hygge. The design breathes. Generous white space, clean grid structure, and restrained color communicate clarity and calm. Feels like a deep exhale. Ideal for a discerning, design-aware audience.</p>
+    </div>
+    <div class="note-block">
+      <h3>Color Palette</h3>
+      <div class="palette">
+        <div class="swatch" style="background:#1e1b18"></div>
+        <div class="swatch" style="background:#3a3530"></div>
+        <div class="swatch" style="background:#8c7b6e"></div>
+        <div class="swatch" style="background:#6b8f71"></div>
+        <div class="swatch" style="background:#ede9e3"></div>
+        <div class="swatch" style="background:#f8f7f5"></div>
+      </div>
+      <p style="margin-top:12px">Ink · Deep Warm · Stone · Sage Accent · Linen · Off-White. Near-neutral with a single sage accent for warmth and nature connection.</p>
+    </div>
+    <div class="note-block">
+      <h3>Typography</h3>
+      <p><strong>DM Serif Display</strong> for headings — a modern serif with optical refinement, excellent at large sizes, and beautiful in italic. <strong>DM Sans</strong> for body — its companion sans-serif, ensuring visual harmony. The pairing feels contemporary yet warm.</p>
+    </div>
+    <div class="note-block">
+      <h3>Key Layout Decisions</h3>
+      <p>Split-screen hero avoids the clichéd full-bleed photo. Animated marquee adds subtle life. Retreat listings as a clean table/list — scannable and functional. Two-column about section with card grid. Sage-green CTA band for host section. Minimal footer with strong typographic hierarchy.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

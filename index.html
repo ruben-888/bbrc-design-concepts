@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Bear Retreat Center — Design Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0e0d0b;
+    --surface: #161410;
+    --border: rgba(255,255,255,.08);
+    --text: #e8e2d8;
+    --muted: #8a8278;
+    --ff-serif: 'Cormorant Garamond', Georgia, serif;
+    --ff-sans: 'Jost', system-ui, sans-serif;
+  }
+  body { background: var(--bg); color: var(--text); font-family: var(--ff-sans); font-weight: 300; min-height: 100vh; }
+
+  header { padding: 80px 80px 60px; border-bottom: 1px solid var(--border); }
+  .header-label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .header-title { font-family: var(--ff-serif); font-size: clamp(40px, 5vw, 72px); font-weight: 300; line-height: 1.05; margin-bottom: 20px; }
+  .header-title em { font-style: italic; }
+  .header-desc { font-size: 16px; line-height: 1.75; color: var(--muted); max-width: 640px; }
+
+  main { padding: 80px; }
+  .concepts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+  .concept-card {
+    background: var(--surface); border: 1px solid var(--border);
+    overflow: hidden; cursor: pointer; text-decoration: none; color: inherit;
+    display: block; transition: border-color .3s, transform .3s;
+  }
+  .concept-card:hover { border-color: rgba(255,255,255,.2); transform: translateY(-4px); }
+
+  .concept-preview {
+    height: 320px; position: relative; overflow: hidden;
+  }
+  .concept-preview iframe {
+    width: 200%; height: 200%;
+    transform: scale(.5); transform-origin: top left;
+    pointer-events: none; border: none;
+  }
+  .concept-preview-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(22,20,16,.9) 100%);
+  }
+
+  .concept-info { padding: 32px; }
+  .concept-number { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .concept-name { font-family: var(--ff-serif); font-size: 32px; font-weight: 300; margin-bottom: 4px; }
+  .concept-tagline { font-size: 13px; color: var(--muted); letter-spacing: .06em; margin-bottom: 20px; }
+  .concept-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .tag {
+    padding: 5px 12px; border: 1px solid var(--border);
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    border-radius: 20px;
+  }
+  .concept-palette { display: flex; gap: 6px; margin-bottom: 24px; }
+  .swatch { width: 28px; height: 28px; border-radius: 50%; }
+  .concept-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--text); text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 4px;
+    transition: border-color .2s;
+  }
+  .concept-link:hover { border-color: var(--text); }
+
+  .concept-card:nth-child(1) .concept-link { color: #b8945a; border-color: rgba(184,148,90,.3); }
+  .concept-card:nth-child(2) .concept-link { color: #6b8f71; border-color: rgba(107,143,113,.3); }
+  .concept-card:nth-child(3) .concept-link { color: #d4a853; border-color: rgba(212,168,83,.3); }
+  .concept-card:nth-child(4) .concept-link { color: #c4603a; border-color: rgba(196,96,58,.3); }
+
+  .comparison { padding: 0 80px 80px; }
+  .comparison h2 { font-family: var(--ff-serif); font-size: 32px; font-weight: 300; margin-bottom: 32px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 14px 20px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 400; }
+  td { padding: 16px 20px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.6; }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-family: var(--ff-serif); font-size: 18px; font-weight: 300; white-space: nowrap; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+
+  footer { padding: 40px 80px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="header-label">Big Bear Retreat Center · Website Redesign</p>
+  <h1 class="header-title">Four Design<br><em>Concepts</em></h1>
+  <p class="header-desc">Each concept below represents a distinct visual direction for the new Big Bear Retreat Center website. Click any concept to explore the full interactive mockup, then review the comparison table to identify which direction best fits your vision.</p>
+</header>
+
+<main>
+  <div class="concepts-grid">
+
+    <!-- CONCEPT 1 -->
+    <a class="concept-card" href="concept-1-ancient-grove.html" target="_blank">
+      <div class="concept-preview">
+        <iframe src="concept-1-ancient-grove.html" title="Concept 1 Preview" loading="lazy"></iframe>
+        <div class="concept-preview-overlay"></div>
+      </div>
+      <div class="concept-info">
+        <div class="concept-number">Concept 01</div>
+        <div class="concept-name">Ancient Grove</div>
+        <div class="concept-tagline">Organic · Editorial · Grounded</div>
+        <div class="concept-tags">
+          <span class="tag">Luxury Nature Lodge</span>
+          <span class="tag">Literary</span>
+          <span class="tag">Tactile</span>
+        </div>
+        <div class="concept-palette">
+          <div class="swatch" style="background:#3d2e1e"></div>
+          <div class="swatch" style="background:#4a5c3a"></div>
+          <div class="swatch" style="background:#7a9068"></div>
+          <div class="swatch" style="background:#b8945a"></div>
+          <div class="swatch" style="background:#f5f0e8"></div>
+        </div>
+        <a class="concept-link" href="concept-1-ancient-grove.html" target="_blank">View Full Mockup →</a>
+      </div>
+    </a>
+
+    <!-- CONCEPT 2 -->
+    <a class="concept-card" href="concept-2-still-water.html" target="_blank">
+      <div class="concept-preview">
+        <iframe src="concept-2-still-water.html" title="Concept 2 Preview" loading="lazy"></iframe>
+        <div class="concept-preview-overlay"></div>
+      </div>
+      <div class="concept-info">
+        <div class="concept-number">Concept 02</div>
+        <div class="concept-name">Still Water</div>
+        <div class="concept-tagline">Minimal · Airy · Contemplative</div>
+        <div class="concept-tags">
+          <span class="tag">Japanese Wabi-Sabi</span>
+          <span class="tag">Scandinavian</span>
+          <span class="tag">Clean</span>
+        </div>
+        <div class="concept-palette">
+          <div class="swatch" style="background:#1e1b18"></div>
+          <div class="swatch" style="background:#8c7b6e"></div>
+          <div class="swatch" style="background:#6b8f71"></div>
+          <div class="swatch" style="background:#ede9e3"></div>
+          <div class="swatch" style="background:#f8f7f5"></div>
+        </div>
+        <a class="concept-link" href="concept-2-still-water.html" target="_blank">View Full Mockup →</a>
+      </div>
+    </a>
+
+    <!-- CONCEPT 3 -->
+    <a class="concept-card" href="concept-3-mountain-dusk.html" target="_blank">
+      <div class="concept-preview">
+        <iframe src="concept-3-mountain-dusk.html" title="Concept 3 Preview" loading="lazy"></iframe>
+        <div class="concept-preview-overlay"></div>
+      </div>
+      <div class="concept-info">
+        <div class="concept-number">Concept 03</div>
+        <div class="concept-name">Mountain Dusk</div>
+        <div class="concept-tagline">Bold · Cinematic · Dark Luxury</div>
+        <div class="concept-tags">
+          <span class="tag">Dark Mode</span>
+          <span class="tag">Wilderness Lodge</span>
+          <span class="tag">Premium</span>
+        </div>
+        <div class="concept-palette">
+          <div class="swatch" style="background:#0d0f0e"></div>
+          <div class="swatch" style="background:#1a2318"></div>
+          <div class="swatch" style="background:#3d5c35"></div>
+          <div class="swatch" style="background:#d4a853"></div>
+          <div class="swatch" style="background:#e8ede4"></div>
+        </div>
+        <a class="concept-link" href="concept-3-mountain-dusk.html" target="_blank">View Full Mockup →</a>
+      </div>
+    </a>
+
+    <!-- CONCEPT 4 -->
+    <a class="concept-card" href="concept-4-warm-earth.html" target="_blank">
+      <div class="concept-preview">
+        <iframe src="concept-4-warm-earth.html" title="Concept 4 Preview" loading="lazy"></iframe>
+        <div class="concept-preview-overlay"></div>
+      </div>
+      <div class="concept-info">
+        <div class="concept-number">Concept 04</div>
+        <div class="concept-name">Warm Earth</div>
+        <div class="concept-tagline">Approachable · Community · Joyful</div>
+        <div class="concept-tags">
+          <span class="tag">Terracotta</span>
+          <span class="tag">Inclusive</span>
+          <span class="tag">Conversion-Focused</span>
+        </div>
+        <div class="concept-palette">
+          <div class="swatch" style="background:#2a2218"></div>
+          <div class="swatch" style="background:#c4603a"></div>
+          <div class="swatch" style="background:#d4784f"></div>
+          <div class="swatch" style="background:#6b8c6b"></div>
+          <div class="swatch" style="background:#faf6ef"></div>
+        </div>
+        <a class="concept-link" href="concept-4-warm-earth.html" target="_blank">View Full Mockup →</a>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <h2>Side-by-Side Comparison</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Mood &amp; Audience</th>
+        <th>Typography</th>
+        <th>Key Differentiator</th>
+        <th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="dot" style="background:#b8945a"></span>01 Ancient Grove</td>
+        <td>Reverent, literary, nature-immersed. Attracts design-aware seekers who value craft and authenticity.</td>
+        <td>Cormorant Garamond + Jost — editorial serif with clean sans</td>
+        <td>Full-bleed hero, editorial image/text splits, parchment tones, stats strip. Feels like a hand-crafted field guide.</td>
+        <td>Positioning BBRC as a premium, artisanal retreat destination with deep roots in the land.</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#6b8f71"></span>02 Still Water</td>
+        <td>Calm, discerning, minimalist. Attracts practitioners who value clarity and intentional design.</td>
+        <td>DM Serif Display + DM Sans — refined modern pairing</td>
+        <td>Split-screen hero, animated marquee, retreat list view, near-neutral palette with single sage accent. Maximum breathing room.</td>
+        <td>Conveying stillness and professionalism — ideal if BBRC wants a contemporary, editorial feel.</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#d4a853"></span>03 Mountain Dusk</td>
+        <td>Aspirational, dramatic, luxury-seeking. Attracts guests who want a transformative, premium experience.</td>
+        <td>Playfair Display + Inter — high-contrast serif with precision sans</td>
+        <td>Dark mode, cinematic overlays, overlapping image stack, gold accents throughout. Feels like a film poster for the wilderness.</td>
+        <td>Differentiating BBRC in a crowded market — most visually striking and memorable of the four.</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:#c4603a"></span>04 Warm Earth</td>
+        <td>Welcoming, inclusive, community-driven. Attracts a broad audience including first-time retreat-goers.</td>
+        <td>Lora + Nunito Sans — warm literary serif with friendly rounded sans</td>
+        <td>Rounded hero image, pill-shaped CTAs, card grid, testimonials, terracotta palette. Highest approachability and conversion potential.</td>
+        <td>Maximizing bookings and accessibility — best aligned with BBRC's commitment to belonging and community.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<footer>
+  <span>Big Bear Retreat Center · Website Redesign Concepts · March 2026</span>
+  <span>Built with Next.js + Retreat Guru API integration planned</span>
+</footer>
+
+</body>
+</html>
