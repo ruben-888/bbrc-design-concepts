@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retreat Calendar 2026 — Big Bear Retreat Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bark:    #3d2e1e;
+  --moss:    #4a5c3a;
+  --sage:    #7a9068;
+  --gold:    #b8945a;
+  --parch:   #f5f0e8;
+  --cream:   #faf8f4;
+  --ink:     #2a2018;
+  --muted:   #8a7c6a;
+  --border:  #ddd5c4;
+  --ff-serif: 'Cormorant Garamond', Georgia, serif;
+  --ff-sans:  'Jost', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--ff-sans);
+  font-weight: 300;
+  line-height: 1.6;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── ANNOUNCEMENT BAR ───────────────────────────────────────── */
+.announce {
+  background: var(--moss);
+  color: #e8ede0;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 13px;
+  letter-spacing: .06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.announce a {
+  color: #d4c99a;
+  border-bottom: 1px solid rgba(212,201,154,.4);
+  font-weight: 400;
+  white-space: nowrap;
+}
+.announce a:hover { border-color: #d4c99a; }
+
+/* ─── NAV ────────────────────────────────────────────────────── */
+nav {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  height: 72px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bark);
+  font-weight: 500;
+}
+.nav-logo-bear {
+  width: 36px;
+  height: 36px;
+  background: var(--bark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.nav-logo-text { line-height: 1.2; }
+.nav-logo-text strong { display: block; font-size: 13px; letter-spacing: .1em; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--bark); }
+.nav-links a.active { border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+.nav-book {
+  background: var(--bark);
+  color: var(--parch) !important;
+  padding: 10px 22px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background .2s;
+  border-radius: 1px;
+}
+.nav-book:hover { background: var(--moss) !important; color: #e8ede0 !important; }
+
+/* ─── PAGE HERO ──────────────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');
+  background-size: cover;
+  background-position: center 40%;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(42,32,24,.2) 0%,
+    rgba(42,32,24,.55) 60%,
+    rgba(42,32,24,.82) 100%
+  );
+}
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 80px 60px;
+  max-width: 900px;
+}
+.page-hero-label {
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.6);
+  margin-bottom: 14px;
+}
+.page-hero h1 {
+  font-family: var(--ff-serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--parch);
+  line-height: 1.0;
+  margin-bottom: 16px;
+}
+.page-hero h1 em { font-style: italic; color: #d4c99a; }
+.page-hero-sub {
+  font-size: 16px;
+  color: rgba(245,240,232,.75);
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.65;
+}
+
+/* ─── PULL QUOTE ─────────────────────────────────────────────── */
+.pull-quote {
+  background: var(--parch);
+  border-left: 3px solid var(--gold);
+  padding: 40px 80px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.pull-quote-mark {
+  font-family: var(--ff-serif);
+  font-size: 72px;
+  line-height: .7;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.pull-quote-text {
+  font-family: var(--ff-serif);
+  font-size: 20px;
+  font-style: italic;
+  color: var(--bark);
+  line-height: 1.6;
+}
+.pull-quote-attr {
+  font-family: var(--ff-sans);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/* ─── FILTER BAR ─────────────────────────────────────────────── */
+.filter-bar {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+}
+.filter-label {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 24px;
+  white-space: nowrap;
+  padding: 18px 0;
+  border-right: 1px solid var(--border);
+  padding-right: 24px;
+}
+.filter-pills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+.filter-pill {
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s;
+  border-radius: 20px;
+}
+.filter-pill:hover { border-color: var(--gold); color: var(--bark); }
+.filter-pill.active {
+  background: var(--bark);
+  border-color: var(--bark);
+  color: var(--parch);
+}
+
+/* ─── MAIN LAYOUT ────────────────────────────────────────────── */
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────────────── */
+.sidebar {
+  background: var(--parch);
+  border-right: 1px solid var(--border);
+  padding: 48px 32px;
+  position: sticky;
+  top: 113px;
+  height: calc(100vh - 113px);
+  overflow-y: auto;
+}
+.sidebar-section { margin-bottom: 40px; }
+.sidebar-title {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.sidebar-nav { list-style: none; }
+.sidebar-nav li { margin-bottom: 4px; }
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  border-radius: 2px;
+  transition: all .2s;
+  font-weight: 300;
+}
+.sidebar-nav a:hover { background: rgba(184,148,90,.1); color: var(--bark); }
+.sidebar-nav a.active {
+  background: rgba(74,92,58,.1);
+  color: var(--moss);
+  font-weight: 400;
+}
+.sidebar-nav .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.sidebar-nav a.active .dot { background: var(--moss); }
+.sidebar-count {
+  margin-left: auto;
+  font-size: 10px;
+  background: var(--border);
+  color: var(--muted);
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.sidebar-nav a.active .sidebar-count {
+  background: rgba(74,92,58,.2);
+  color: var(--moss);
+}
+.sidebar-info {
+  background: rgba(184,148,90,.08);
+  border: 1px solid rgba(184,148,90,.2);
+  padding: 16px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.sidebar-info strong { color: var(--bark); display: block; margin-bottom: 6px; font-weight: 400; font-size: 13px; }
+.sidebar-info a { color: var(--gold); border-bottom: 1px solid rgba(184,148,90,.3); }
+
+/* ─── RETREAT LIST ───────────────────────────────────────────── */
+.retreat-list { padding: 0 64px 80px; }
+
+/* Season Header */
+.season-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 48px 0 24px;
+}
+.season-line { flex: 1; height: 1px; background: var(--border); }
+.season-name {
+  font-family: var(--ff-serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+.season-icon { font-size: 16px; }
+
+/* Retreat Card */
+.retreat-card {
+  border: 1px solid var(--border);
+  background: #fff;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  overflow: hidden;
+  transition: box-shadow .25s, border-color .25s;
+}
+.retreat-card:hover {
+  box-shadow: 0 8px 32px rgba(42,32,24,.08);
+  border-color: rgba(184,148,90,.4);
+}
+
+/* Card Image */
+.card-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--parch);
+  min-height: 200px;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.retreat-card:hover .card-image img { transform: scale(1.04); }
+.card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8e0d0 0%, #d4c9b4 100%);
+  font-size: 40px;
+  color: rgba(74,92,58,.3);
+}
+
+/* Card Tags (on image) */
+.card-tags {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.card-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 1px;
+  backdrop-filter: blur(4px);
+}
+.tag-type {
+  background: rgba(42,32,24,.75);
+  color: #e8dcc8;
+}
+.tag-affinity {
+  background: rgba(74,92,58,.85);
+  color: #d4e0c8;
+}
+.tag-hybrid {
+  background: rgba(90,80,140,.8);
+  color: #ddd8f0;
+}
+.tag-dana {
+  background: rgba(184,148,90,.85);
+  color: #fff8ec;
+}
+.tag-sliding {
+  background: rgba(100,140,100,.85);
+  color: #e4f0e4;
+}
+
+/* Card Body */
+.card-body {
+  padding: 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+}
+.card-date {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-date::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+.card-title {
+  font-family: var(--ff-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--bark);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.card-subtitle {
+  font-family: var(--ff-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.card-desc {
+  font-size: 13.5px;
+  color: #6a5e50;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.card-teacher {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.card-teacher strong { color: var(--bark); font-weight: 400; }
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: auto;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  background: var(--bark);
+  color: var(--parch);
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background .2s;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--moss); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all .2s;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--bark); }
+.btn-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: 1px solid rgba(90,80,140,.3);
+  color: #5a508c;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all .2s;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.btn-online:hover { background: rgba(90,80,140,.06); border-color: rgba(90,80,140,.5); }
+
+/* Pricing badge */
+.pricing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin-left: auto;
+}
+.pricing-badge.sliding { color: #4a7a4a; border-color: rgba(74,122,74,.3); }
+.pricing-badge.dana { color: #8a6a20; border-color: rgba(184,148,90,.4); }
+
+/* ─── SCHOLARSHIP BANNER ─────────────────────────────────────── */
+.scholarship-banner {
+  margin: 40px 64px 0;
+  background: linear-gradient(135deg, var(--moss) 0%, #3d4e2e 100%);
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.scholarship-banner h3 {
+  font-family: var(--ff-serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--parch);
+  margin-bottom: 8px;
+}
+.scholarship-banner p {
+  font-size: 14px;
+  color: rgba(245,240,232,.7);
+  line-height: 1.6;
+  max-width: 480px;
+}
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: rgba(245,240,232,.15);
+  border: 1px solid rgba(245,240,232,.3);
+  color: var(--parch);
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: background .2s;
+  white-space: nowrap;
+  border-radius: 1px;
+}
+.btn-light:hover { background: rgba(245,240,232,.25); }
+
+/* ─── HOST CTA ───────────────────────────────────────────────── */
+.host-cta {
+  margin: 32px 64px 64px;
+  border: 1px solid var(--border);
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+  background: var(--parch);
+}
+.host-cta h3 {
+  font-family: var(--ff-serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--bark);
+  margin-bottom: 8px;
+}
+.host-cta p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--bark);
+  color: rgba(245,240,232,.7);
+  padding: 64px 80px 40px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand {
+  font-family: var(--ff-serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--parch);
+  margin-bottom: 12px;
+}
+.footer-tagline {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+.footer-col-title {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.4);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  font-size: 13px;
+  color: rgba(245,240,232,.6);
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--parch); }
+.footer-bottom {
+  border-top: 1px solid rgba(245,240,232,.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(245,240,232,.35);
+}
+.footer-bottom a { color: rgba(245,240,232,.5); }
+
+/* ─── UTILITIES ──────────────────────────────────────────────── */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce">
+  <span>Our full 2026 Retreat Calendar has launched!</span>
+  <a href="#retreats">View all retreats →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="concept-1-ancient-grove.html" class="nav-logo">
+    <div class="nav-logo-bear">🐻</div>
+    <div class="nav-logo-text">
+      <strong>Big Bear</strong>
+      Retreat Center
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="active">Retreat Calendar</a></li>
+    <li><a href="#">Preparing</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Connect</a></li>
+    <li><a href="#" class="nav-book">Book a Retreat</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-label">Big Bear, California · 1,400 Acres · 2026 Season</p>
+    <h1>Retreat<br><em>Calendar</em></h1>
+    <p class="page-hero-sub">Find your retreat, your teacher, your community. Twenty-three residential programs across four seasons — from silent meditation to embodied movement, affinity gatherings to hybrid online offerings.</p>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <div class="pull-quote-mark">"</div>
+  <div>
+    <p class="pull-quote-text">This retreat center is by far the best one I have ever been to. Intimate setting, nestled in the mountains with gorgeous views and hiking trails. For a small retreat center, they attract top teachers. I love Big Bear Retreat Center.</p>
+    <p class="pull-quote-attr">— Retreat Participant, 2023</p>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Filter</span>
+  <div class="filter-pills">
+    <button class="filter-pill active">All Retreats</button>
+    <button class="filter-pill">Meditation</button>
+    <button class="filter-pill">Affinity / Kinship</button>
+    <button class="filter-pill">Hybrid Online</button>
+    <button class="filter-pill">Sliding Scale</button>
+    <button class="filter-pill">Dana / Donation</button>
+    <button class="filter-pill">Spring</button>
+    <button class="filter-pill">Summer</button>
+    <button class="filter-pill">Fall</button>
+    <button class="filter-pill">Winter</button>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="calendar-layout" id="retreats">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-title">Jump to Season</p>
+      <ul class="sidebar-nav">
+        <li><a href="#spring" class="active"><span class="dot"></span> Spring 2026 <span class="sidebar-count">8</span></a></li>
+        <li><a href="#summer"><span class="dot"></span> Summer 2026 <span class="sidebar-count">6</span></a></li>
+        <li><a href="#fall"><span class="dot"></span> Fall 2026 <span class="sidebar-count">7</span></a></li>
+        <li><a href="#winter"><span class="dot"></span> Winter 2026 <span class="sidebar-count">2</span></a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-title">Retreat Types</p>
+      <ul class="sidebar-nav">
+        <li><a href="#"><span class="dot"></span> Meditation Retreat</a></li>
+        <li><a href="#"><span class="dot"></span> Affinity / Kinship</a></li>
+        <li><a href="#"><span class="dot"></span> Embodiment &amp; Movement</a></li>
+        <li><a href="#"><span class="dot"></span> Hybrid Online</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <p class="sidebar-title">Pricing</p>
+      <ul class="sidebar-nav">
+        <li><a href="#"><span class="dot"></span> Standard Lodging</a></li>
+        <li><a href="#"><span class="dot"></span> Sliding Scale</a></li>
+        <li><a href="#"><span class="dot"></span> Dana / Donation</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-info">
+      <strong>Need support?</strong>
+      Scholarships and sliding-scale fees are available. We'll do everything we can to get you here.
+      <br><br>
+      <a href="#">Learn about scholarships →</a>
+    </div>
+  </aside>
+
+  <!-- RETREAT LIST -->
+  <main class="retreat-list">
+
+    <!-- ── SPRING ── -->
+    <div class="season-header" id="spring">
+      <div class="season-line"></div>
+      <span class="season-icon">🌿</span>
+      <span class="season-name">Spring 2026</span>
+      <div class="season-line"></div>
+    </div>
+
+    <!-- 1 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=560&q=75" alt="Women's Nature Retreat">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">March 7 – 11, 2026 · 5 days</div>
+        <h2 class="card-title">The Sacred Path of Connection, Belonging &amp; Love</h2>
+        <p class="card-subtitle">A Women's Springtime Nature Retreat</p>
+        <p class="card-teacher">with <strong>Heidi Bourne &amp; Laurie Cousins</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=560&q=75" alt="Embodied Mind Retreat">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">March 17 – 22, 2026 · 6 days</div>
+        <h2 class="card-title">The Embodied Mind</h2>
+        <p class="card-subtitle">Experiencing the Somatic and Subtle Body</p>
+        <p class="card-teacher">with <strong>Jill Satterfield</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=560&q=75" alt="Grounding in the Dharma">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">March 25 – 29, 2026 · 5 days</div>
+        <h2 class="card-title">Grounding in the Dharma</h2>
+        <p class="card-subtitle">Connecting with ourselves as a way to live in harmony with others</p>
+        <p class="card-teacher">with <strong>Mary Stancavage, Ian Challis, Valerie Cusson &amp; Jokai Blackwell</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=560&q=75" alt="Convergence of Wisdom and Love">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-hybrid">Hybrid Online</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">March 31 – April 4, 2026 · 5 days</div>
+        <h2 class="card-title">The Convergence of Wisdom and Love</h2>
+        <p class="card-subtitle">Sitting in the quiet of our own hearts, the miracle of mindfulness</p>
+        <p class="card-teacher">with <strong>Matthew Brensilver</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <a href="#" class="btn-online">⊕ Register Online</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=560&q=75" alt="Buddha Nature Retreat">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">April 18 – 21, 2026 · 4 days</div>
+        <h2 class="card-title">Opening to the Unconditional Love and Wisdom of Our Buddha Nature</h2>
+        <p class="card-subtitle">Sustainable Compassion Training</p>
+        <p class="card-teacher">with <strong>John Makransky &amp; Radhule Weininger</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=560&q=75" alt="Coming Home to Our Senses">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-hybrid">Hybrid Online</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">April 22 – 26, 2026 · 5 days</div>
+        <h2 class="card-title">Coming Home to Our Senses</h2>
+        <p class="card-subtitle">Connecting with the truth of each moment</p>
+        <p class="card-teacher">with <strong>Gullu Singh, Trudy Goodman, Lienchi (LC) Tran &amp; Gabrielle Hammond</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <a href="#" class="btn-online">⊕ Register Online</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=560&q=75" alt="Dharma of Recovery">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">May 21 – 25, 2026 · 5 days</div>
+        <h2 class="card-title">The Dharma of Recovery</h2>
+        <p class="card-subtitle">A deeper sense of peace, freedom, and wholeness</p>
+        <p class="card-desc">A compassionate space for anyone walking the path of recovery — whether from addiction, codependency, trauma, or the many ways suffering takes root in our lives.</p>
+        <p class="card-teacher">with <strong>Vimalasara &amp; Kevin Griffin</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge sliding">Sliding Scale</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── SUMMER ── -->
+    <div class="season-header" id="summer">
+      <div class="season-line"></div>
+      <span class="season-icon">☀️</span>
+      <span class="season-name">Summer 2026</span>
+      <div class="season-line"></div>
+    </div>
+
+    <!-- 8 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=560&q=75" alt="Love and Awareness">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">June 8 – 14, 2026 · 7 days</div>
+        <h2 class="card-title">Love and Awareness: The Heart That Knows</h2>
+        <p class="card-subtitle">Cultivating mindfulness that is infused with care, and love that is grounded in knowing</p>
+        <p class="card-teacher">with <strong>Celeste Young &amp; Vance Pryor</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=560&q=75" alt="When Awareness Becomes Natural">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">June 15 – 21, 2026 · 7 days</div>
+        <h2 class="card-title">When Awareness Becomes Natural</h2>
+        <p class="card-subtitle">A Sayadaw U Tejaniya style retreat</p>
+        <p class="card-teacher">with <strong>Lienchi "LC" Tran &amp; Neesha Patel</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge dana">Dana / Donation</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=560&q=75" alt="Original Body Scan">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-hybrid">Hybrid Online</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">June 22 – 28, 2026 · 7 days</div>
+        <h2 class="card-title">The Original Body Scan: Discovering Freedom Within the Body</h2>
+        <p class="card-subtitle">A Mindfulness and Qi Gong Retreat with the "32 Parts of the Body" Meditation</p>
+        <p class="card-teacher">with <strong>Christiane Wolf, Bob Stahl, Mary Grace Orr &amp; Marcy Reynolds</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <a href="#" class="btn-online">⊕ Register Online</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1536623975707-c4b3b2af565d?w=560&q=75" alt="Tending the Self">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">July 9 – 12, 2026 · 4 days</div>
+        <h2 class="card-title">Tending the Self, Tending the World</h2>
+        <p class="card-subtitle">A weekend to rest the heart and steady the mind</p>
+        <p class="card-teacher">with <strong>Gullu Singh &amp; Gabrielle Hammond</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=560&q=75" alt="Listen Heart Peace">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">July 12 – 19, 2026 · 8 days</div>
+        <h2 class="card-title">Listen, Heart, Peace</h2>
+        <p class="card-subtitle">Opening the heart and evoking greater freedom</p>
+        <p class="card-teacher">with <strong>Kim Allen &amp; Diana Clark</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge dana">Dana / Donation</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 13 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=560&q=75" alt="The Middle Way">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Embodiment Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">July 31 – August 4, 2026 · 5 days</div>
+        <h2 class="card-title">The Middle Way</h2>
+        <p class="card-subtitle">An Embodiment Journey Exploring Stillness and Movement, Silence and Sound, Dark and Light</p>
+        <p class="card-teacher">with <strong>Deborah Eden Tull, Enrique Collazo &amp; Charlie Korda</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 14 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=560&q=75" alt="Creating Refuge in Community">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">August 5 – 9, 2026 · 5 days</div>
+        <h2 class="card-title">Creating Refuge in Community</h2>
+        <p class="card-subtitle">A Silent Retreat for Trans, Nonbinary &amp; Gender Expansive Practitioners</p>
+        <p class="card-teacher">with <strong>JD Doyle, Lev Michael Moses &amp; René Rivera</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Apply →</a>
+          <span class="pricing-badge sliding">Sliding Scale</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── FALL ── -->
+    <div class="season-header" id="fall">
+      <div class="season-line"></div>
+      <span class="season-icon">🍂</span>
+      <span class="season-name">Fall 2026</span>
+      <div class="season-line"></div>
+    </div>
+
+    <!-- 15 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=560&q=75" alt="BIPOC Community Retreat">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">September 2 – 6, 2026 · 5 days</div>
+        <h2 class="card-title">BIPOC Community Retreat</h2>
+        <p class="card-subtitle">A silent meditation retreat for people who identify as Black, Indigenous, or as a Person-of-Color</p>
+        <p class="card-teacher">with <strong>Devin Berry, Alli Simon &amp; Hakim Tafari</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge sliding">Sliding Scale</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 16 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?w=560&q=75" alt="Retiro de Meditacion">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">September 9 – 13, 2026 · 5 days</div>
+        <h2 class="card-title">Retiro de Meditación</h2>
+        <p class="card-subtitle">Presencia Plena, Silencio en Comunidad y en la Naturaleza</p>
+        <p class="card-teacher">with <strong>Tere Abdala &amp; Rosamaría Segura</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge sliding">Sliding Scale</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 17 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=560&q=75" alt="Refuge of the Heart">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-hybrid">Hybrid Online</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">September 15 – 20, 2026 · 6 days</div>
+        <h2 class="card-title">The Refuge of the Heart</h2>
+        <p class="card-subtitle">A Retreat on the Four Manifestations of Love</p>
+        <p class="card-teacher">with <strong>Matthew Brensilver &amp; Beth Sternlieb</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <a href="#" class="btn-online">⊕ Register Online</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 18 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=560&q=75" alt="Rest in Simplicity">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">September 22 – 27, 2026 · 6 days</div>
+        <h2 class="card-title">Rest in Simplicity</h2>
+        <p class="card-subtitle">Learn to slow down and attune to the fresh simplicity of our present moment experience</p>
+        <p class="card-teacher">with <strong>Celeste Young &amp; Dawn Scott</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 19 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=560&q=75" alt="Slow Down Open Belong">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">September 27 – October 1, 2026 · 5 days</div>
+        <h2 class="card-title">Slow Down, Open, Belong: Insight &amp; Lovingkindness Meditation Retreat</h2>
+        <p class="card-subtitle">Experiencing Radical Stillness</p>
+        <p class="card-teacher">with <strong>Devin Berry, Tara Mulay &amp; Hakim Tafari</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 20 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=560&q=75" alt="Cultivating Kindness">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">October 1 – 4, 2026 · 4 days</div>
+        <h2 class="card-title">Cultivating Kindness Autumn Retreat</h2>
+        <p class="card-subtitle">A Women's Journey through Mindfulness, Self-Compassion, Writing &amp; Movement</p>
+        <p class="card-teacher">with <strong>Susan Steinberg-Oren, Christine Suarez &amp; Lesley Hyatt</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 21 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?w=560&q=75" alt="Liberation Spirituality">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">October 11 – 17, 2026 · 7 days</div>
+        <h2 class="card-title">Liberation Spirituality: A Dharma Gathering for Our Times</h2>
+        <p class="card-subtitle">Weaving Dharma, inquiry, and systemic visioning into a collective field of practice</p>
+        <p class="card-teacher">with <strong>Thanissara, Andrés Gonzales, Yong Oh, Djuna Devereaux, Kareem Ghandour &amp; Emiko Yoshikami</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 22 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=560&q=75" alt="Resilience and Refuge">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">November 2 – 7, 2026 · 6 days</div>
+        <h2 class="card-title">Resilience and Refuge: Mindful Yoga and Embodied Dharma</h2>
+        <p class="card-subtitle">Meeting life's challenges with grace and wisdom</p>
+        <p class="card-teacher">with <strong>Djuna Devereaux &amp; Anne Cushman</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── WINTER ── -->
+    <div class="season-header" id="winter">
+      <div class="season-line"></div>
+      <span class="season-icon">❄️</span>
+      <span class="season-name">Winter 2026</span>
+      <div class="season-line"></div>
+    </div>
+
+    <!-- 23 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=560&q=75" alt="Cultivating Home in Our Hearts">
+        <div class="card-tags">
+          <span class="card-tag tag-affinity">Affinity / Kinship</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">November 12 – 15, 2026 · 4 days</div>
+        <h2 class="card-title">Cultivating Home in Our Hearts</h2>
+        <p class="card-subtitle">A gathering for Adult Adoptees, Former Foster Youth and Group Homes and the Youth Care System</p>
+        <p class="card-teacher">with <strong>Vimalasara, Lev Michael Moses &amp; Maryann Gallo</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Learn More &amp; Register →</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 24 -->
+    <article class="retreat-card">
+      <div class="card-image">
+        <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=560&q=75" alt="Seven Factors of Awakening">
+        <div class="card-tags">
+          <span class="card-tag tag-type">Meditation Retreat</span>
+          <span class="card-tag tag-hybrid">Hybrid Online</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-date">November 17 – 21, 2026 · 5 days</div>
+        <h2 class="card-title">The Seven Factors of Awakening</h2>
+        <p class="card-subtitle">Bringing ease, joy, and clarity to the heart and mind</p>
+        <p class="card-teacher">with <strong>Lisa Ernst &amp; Trudy Goodman</strong></p>
+        <div class="card-actions">
+          <a href="#" class="btn-primary">Register In-Person →</a>
+          <a href="#" class="btn-online">⊕ Register Online</a>
+          <span class="pricing-badge">Lodging Pricing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- SCHOLARSHIP BANNER -->
+    <div class="scholarship-banner">
+      <div>
+        <h3>Scholarships &amp; Sliding-Scale Fees</h3>
+        <p>We believe everyone deserves access to transformative practice. Generous scholarships and flexible pricing are available — we'll do everything we can to get you here.</p>
+      </div>
+      <a href="#" class="btn-light">Learn About Scholarships →</a>
+    </div>
+
+    <!-- HOST CTA -->
+    <div class="host-cta">
+      <div>
+        <h3>Bring Your Community Here</h3>
+        <p>Big Bear Retreat Center is available for private retreats, workshops, and immersions. Our spacious land and thoughtfully tended facilities provide the perfect container for your group's work.</p>
+      </div>
+      <a href="#" class="btn-primary">Inquire About Hosting →</a>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Big Bear Retreat Center</div>
+      <p class="footer-tagline">A restorative space for healing and creativity, nestled in 1,400 acres of ancient Juniper woodland in Big Bear, California.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Explore</p>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Retreat Calendar</a></li>
+        <li><a href="#">Preparing for Retreat</a></li>
+        <li><a href="#">Library</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Visit</p>
+      <ul>
+        <li><a href="#">1000 Sugarpine Road</a></li>
+        <li><a href="#">Big Bear City, CA 92314</a></li>
+        <li><a href="#">(760) 209-6818</a></li>
+        <li><a href="#">info@bigbearretreatcenter.org</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Connect</p>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Host a Retreat</a></li>
+        <li><a href="#">Scholarships</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Big Bear Retreat Center · Land of the Yuhaviatam</span>
+    <span><a href="#">Privacy Policy</a> · <a href="#">Accessibility</a></span>
+  </div>
+</footer>
+
+<script>
+// Simple filter pill toggle (visual only)
+document.querySelectorAll('.filter-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+  });
+});
+
+// Sidebar active state on scroll
+const sections = ['spring','summer','fall','winter'];
+const sidebarLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = 'spring';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 160) current = id;
+  });
+  sidebarLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
